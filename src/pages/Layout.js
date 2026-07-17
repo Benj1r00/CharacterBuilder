@@ -20,7 +20,7 @@ export default function Layout() {
                 <div className="top-bar-right">
                     <button 
                     className="btn-reset"
-                    onClick={navigate(`/character-builder`)}
+                    onClick={() => navigate(`/character-builder`)}
                     >
                     START/RESET
                     </button>
