@@ -1,4 +1,5 @@
 import CharacterInfo from '../components/CharacterInfo';
+import CharacterBuilder from '../components/CharacterBuilder';
 import './MainPage.css';
 
 export default function MainPage(){
@@ -9,7 +10,7 @@ export default function MainPage(){
             </div>
 
             <div className="main-content-section">
-                {/* місце для контейнера з поінтами */}
+                <CharacterBuilder/>
             </div>
         </div> 
     );

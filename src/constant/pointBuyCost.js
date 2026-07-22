@@ -1,4 +1,4 @@
-export const POINT_BUY_COSTS = {
+export const POINT_COST = {
   8: 0,
   9: 1,
   10: 2,
@@ -9,6 +9,6 @@ export const POINT_BUY_COSTS = {
   15: 9
 };
 
-export default function whatModifier(score) {
+export function whatModifier(score) {
   return (Math.floor((score - 10) / 2));
 }

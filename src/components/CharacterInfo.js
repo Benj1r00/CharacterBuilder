@@ -1,16 +1,35 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+
+import { setRace } from '../store/characterSlice';
+import { setClass } from '../store/characterSlice';
+
 import { RACES } from '../constant/races';
 import { CLASSES } from '../constant/classes';
+import cat from '../img/cat.webp'
 import './CharacterInfo.css'
 
 export default function CharacterInfo(){
-    const {register, handleSubmit, formState: { errors },} = useForm({defaultValues: {characterName: '', race: '', characterClass: ''}});
+    const dispatch = useDispatch();
+
+    const {register, handleSubmit, watch, formState: { errors },} = useForm({defaultValues: {characterName: '', race: '', characterClass: ''}});
     
     const onSubmit = (data) => {
         console.log(data);
     }
+
+    const selectedRaceKey = watch('race');
+    const selectedClassKey = watch('characterClass');
+
+    useEffect(() => {
+        dispatch(setRace(selectedRaceKey || ''));
+    }, [selectedRaceKey, dispatch]);
     
+    useEffect(() => {
+        dispatch(setClass(selectedClassKey || ''));
+    }, [selectedClassKey, dispatch]);
+
     return(
         <div className='info-panel-wrapper'>
             <div className='panel-badge'>Ітформація про персонажа</div>
@@ -57,9 +76,7 @@ export default function CharacterInfo(){
                     </select>
                     {errors.characterClass && <span className="error-text">{errors.characterClass.message}</span>}
                 </div>
-                <button type="submit">
-                    Зберегти інформацію
-                </button>
+                <img src={cat} alt="cat" />
             </form>
         </div>
     );
