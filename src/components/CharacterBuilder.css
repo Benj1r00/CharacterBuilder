@@ -3,7 +3,7 @@
   background-color: #ffffff;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  padding: 35px 20px 20px 20px;
+  padding: 35px 20px 80px 20px;
   width: 100%;
   min-width: 280px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -116,4 +116,27 @@
     font-weight: 600;
     min-width: 30px;
     text-align: center;
+}
+
+.save-btn {
+  background-color: #28a745; /* Приємний зелений колір */
+  color: white;              /* Колір тексту */
+  border: none;              /* Прибираємо стандартну рамку */
+  border-radius: 25px;       /* Заокруглені краї (чим більше значення, тим кругліше) */
+  padding: 10px 24px;        /* Внутрішні відступи (зверху/знизу та по боках) */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;           /* Курсор у вигляді руки при наведенні */
+  transition: 0.2s;          /* Плавна анімація для ховеру */
+
+  /* 2. Позиціонування (знизу по центру) */
+  position: absolute;        /* Відриваємо від загального потоку */
+  bottom: 20px;              /* Відступ від нижнього краю діва */
+  left: 50%;                 /* Зсуваємо лівий край кнопки на центр діва */
+  transform: translateX(-50%);
+}
+
+.save-btn:hover {
+  background-color: #218838; /* Трохи темніший зелений */
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3); /* Легка тінь */
 }

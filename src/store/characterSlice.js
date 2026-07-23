@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState ={
     baseStats: {strength:8, dexterity:8, constitution:8, intelligence:8, wisdom:8, charisma:8},
+    characterName: '',
     baseRace: '',
     baseClass: '' 
 }
@@ -10,13 +11,16 @@ const characterSlice = createSlice({
   name: 'character',
   initialState,
   reducers: {
-    // Екшен для оновлення раси з лівої панелі
-    setRace: (state, action) => {
-      state.selectedRace = action.payload;
+    setName: (state, action) => {
+      state.characterName = action.payload; 
     },
-    // Екшен для оновлення класа з лівої панелі
+
+    setRace: (state, action) => {
+      state.baseRace = action.payload; 
+    },
+    
     setClass: (state, action) => {
-      state.selectedClass = action.payload;
+      state.baseClass = action.payload; 
     },
     // "+"
     incrementStat: (state, action) => {
@@ -37,5 +41,5 @@ const characterSlice = createSlice({
   }
 });
 
-export const { setRace, setClass, incrementStat, decrementStat } = characterSlice.actions;
+export const { setRace, setClass, setName, incrementStat, decrementStat } = characterSlice.actions;
 export default characterSlice.reducer;

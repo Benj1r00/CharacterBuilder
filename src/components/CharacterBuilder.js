@@ -5,7 +5,8 @@ import { incrementStat, decrementStat } from '../store/characterSlice';
 import { POINT_COST, whatModifier } from '../constant/pointBuyCost'
 import { RACES } from "../constant/races";
 import { CLASSES } from "../constant/classes";
-import './CharacterBuilder.css'; // Підключення нашого нового CSS файлу
+
+import './CharacterBuilder.css';
 
 const UI_LABELS = {
     strength: 'Сила', 
@@ -90,6 +91,7 @@ export default function CharacterBuilder(){
                     );
                 })}
             </div>
+            <button className="save-btn" type="submit" form="character-form" onClick={null}>Зберегти персонажа</button>
         </div>
     );
 }

@@ -70,3 +70,7 @@
   max-width: 100%; 
   display: block;
 }
+
+.top-bar-left img:hover{
+  cursor: pointer;
+}

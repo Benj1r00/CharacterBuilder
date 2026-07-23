@@ -2,8 +2,7 @@ import React, {useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 
-import { setRace } from '../store/characterSlice';
-import { setClass } from '../store/characterSlice';
+import { setRace, setClass, setName } from '../store/characterSlice';
 
 import { RACES } from '../constant/races';
 import { CLASSES } from '../constant/classes';
@@ -16,24 +15,21 @@ export default function CharacterInfo(){
     const {register, handleSubmit, watch, formState: { errors },} = useForm({defaultValues: {characterName: '', race: '', characterClass: ''}});
     
     const onSubmit = (data) => {
-        console.log(data);
+        console.log(data)
     }
 
-    const selectedRaceKey = watch('race');
-    const selectedClassKey = watch('characterClass');
+    const [name, race, charClass] = watch(['characterName', 'race', 'characterClass']);
 
     useEffect(() => {
-        dispatch(setRace(selectedRaceKey || ''));
-    }, [selectedRaceKey, dispatch]);
-    
-    useEffect(() => {
-        dispatch(setClass(selectedClassKey || ''));
-    }, [selectedClassKey, dispatch]);
+        dispatch(setName(name || ''));
+        dispatch(setRace(race || ''));
+        dispatch(setClass(charClass || ''));
+    }, [name, race, charClass, dispatch]);
 
     return(
         <div className='info-panel-wrapper'>
             <div className='panel-badge'>Ітформація про персонажа</div>
-            <form className='info-form' onSubmit={handleSubmit(onSubmit)}>
+            <form id='character-form' className='info-form' onSubmit={handleSubmit(onSubmit)}>
                 <div className='form-group'>
                     <label className='form-label' htmlFor='characterName'>Ім'я вашого персонажа:</label>
                     <input
@@ -76,7 +72,7 @@ export default function CharacterInfo(){
                     </select>
                     {errors.characterClass && <span className="error-text">{errors.characterClass.message}</span>}
                 </div>
-                <img src={cat} alt="cat" />
+                <img src={cat} alt="cat" style={{width: '300px', height: 'auto'}} />
             </form>
         </div>
     );
