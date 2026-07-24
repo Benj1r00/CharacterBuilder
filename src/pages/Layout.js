@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
-import { DraftPage } from '../pages/DraftPage'
+import DraftPage from '../pages/DraftPage'
 import './Layout.css';
 import diceImage from '../img/dice.png';
 
@@ -23,9 +23,9 @@ export default function Layout() {
                     {location.pathname === '/' && (
                         <button 
                         className="btn-reset"
-                        onClick={() => navigate(`/character-builder`)}
+                        onClick={() => navigate(`/character-builder/`)}
                         >
-                        START WITHOUT SAVING
+                        БЕЗ ЗБЕРЕЖЕННЯ
                         </button>
                     )} 
                 </div>

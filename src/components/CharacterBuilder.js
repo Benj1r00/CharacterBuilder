@@ -17,7 +17,7 @@ const UI_LABELS = {
     charisma: 'Харизма'
 };
 
-export default function CharacterBuilder(){
+export default function CharacterBuilder({isSave}){
     const dispatch = useDispatch();
     const baseStats = useSelector((state) => state.character.baseStats);
     const selectedRaceKey = useSelector((state) => state.character.selectedRace);
@@ -91,7 +91,7 @@ export default function CharacterBuilder(){
                     );
                 })}
             </div>
-            <button className="save-btn" type="submit" form="character-form" onClick={null}>Зберегти персонажа</button>
+            {isSave && <button className="save-btn" type="submit" form="character-form" onClick={null}>Зберегти персонажа</button>}
         </div>
     );
 }

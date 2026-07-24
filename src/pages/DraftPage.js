@@ -1,8 +1,12 @@
 import React from "react";
-import "./DraftPage.css"
+import SaveBlock from "../components/SaveBlock";
+import "./DraftPage.css";
 
-export function DraftPage(){
+export default function DraftPage(){
     return(
-        <h2>DraftPage</h2>
+        <div>
+            <h2 className="main-title">Всі ваші збережені герої</h2>
+            <SaveBlock/>
+        </div>    
     );
 }

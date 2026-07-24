@@ -8,7 +8,7 @@ export default function App() {
   return (
     <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/character-builder" element={<MainPage />} />
+          <Route path="/character-builder/:save?" element={<MainPage />} />
         </Route>
         <Route path="*" element={<ErrorPage />} /> 
     </Routes>
